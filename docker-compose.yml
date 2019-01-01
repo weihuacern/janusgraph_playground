@@ -1,0 +1,55 @@
+version: '3'
+
+# As of JanusGraph 0.3.1, up to Cassandra 3.11 and Elasticsearch 6.x
+# are supported.
+#
+# Here's the compatibility matrix:
+#   https://docs.janusgraph.org/latest/version-compat.html
+#
+# Here's the compatibility data for ScyllaDB:
+#   http://docs.scylladb.com/using-scylla/cassandra-compatibility/
+
+services:
+  janus:
+    image: janusgraph:0.3.1-hadoop2
+    build:
+      dockerfile: Dockerfile
+      args:
+        version: 0.3.1
+        hadoop: hadoop2
+      context: ./
+    ports:
+      - "8182:8182"
+      - "8184:8184"
+    depends_on:
+      - db
+      - index
+  db:
+    image: scylladb/scylla:2.2.0
+    ports:
+     # http://docs.scylladb.com/kb/posix/
+     # REST API
+     - "10000:10000"
+     # CQL ports (native_transport_port)
+     - "9042:9042"
+     # Thrift (rpc_port)
+     - "9160:9160"
+     # Internode
+     - "7000:7000"
+     - "7001:7001"
+     # JMX
+     - "7199:7199"
+     # Prometheus monitoring
+     - "9180:9180"
+     - "9100:9100"
+    volumes:
+     - ./data/scylla/data:/var/lib/scylla
+
+  index:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.0
+    ports:
+     - "9200:9200"
+     - "9300:9300"
+    user: "1000"
+    volumes:
+     - ./data/elasticsearch/data:/usr/share/elasticsearch/data

@@ -1,2 +1,2 @@
-# janusgraph_playground
+# JanusGraph Playground
 https://github.com/JanusGraph/janusgraph
