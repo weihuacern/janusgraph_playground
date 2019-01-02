@@ -46,7 +46,7 @@ services:
      - ./data/scylla/data:/var/lib/scylla
 
   index:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
     ports:
      - "9200:9200"
      - "9300:9300"
