@@ -18,12 +18,12 @@ WORKDIR /workspace/janusgraph
 # This next step might take a while.
 RUN bin/gremlin-server.sh -i org.apache.tinkerpop gremlin-python 3.3.3
 
-COPY janusgraph/gremlin-server.yaml /workspace/janusgraph/conf/gremlin-server/gremlin-server.yaml
-COPY janusgraph/janusgraph.properties /workspace/janusgraph/janusgraph.properties
+COPY gremlin-server.yaml /workspace/janusgraph/conf/gremlin-server/gremlin-server.yaml
+COPY janusgraph.properties /workspace/janusgraph/janusgraph.properties
 
 # Example graphs and data
-COPY janusgraph/empty-sample.groovy /workspace/janusgraph/scripts/empty-sample.groovy
-COPY janusgraph/data/*.graphml /workspace/janusgraph/data/
+COPY empty-sample.groovy /workspace/janusgraph/scripts/empty-sample.groovy
+COPY data/*.graphml /workspace/janusgraph/data/
 
-COPY janusgraph/run.sh /workspace/janusgraph
+COPY run.sh /workspace/janusgraph
 CMD ["/bin/bash", "-e", "/workspace/janusgraph/run.sh"]

@@ -10,21 +10,22 @@ version: '3'
 #   http://docs.scylladb.com/using-scylla/cassandra-compatibility/
 
 services:
-  janus:
+  janusgraph:
     image: janusgraph:0.3.1-hadoop2
     build:
+      context: ./janusgraph
       dockerfile: Dockerfile
       args:
         version: 0.3.1
         hadoop: hadoop2
-      context: ./
     ports:
       - "8182:8182"
       - "8184:8184"
     depends_on:
-      - db
-      - index
-  db:
+      - storage_db
+      - index_db
+
+  storage_db:
     image: scylladb/scylla:2.2.0
     ports:
      # http://docs.scylladb.com/kb/posix/
@@ -45,7 +46,7 @@ services:
     volumes:
      - ./data/scylla/data:/var/lib/scylla
 
-  index:
+  index_db:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
     ports:
      - "9200:9200"
