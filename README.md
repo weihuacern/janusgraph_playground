@@ -1,6 +1,12 @@
 ## JanusGraph Playground
 https://github.com/JanusGraph/janusgraph
 
+### JanusGraph
+#### Gremlin server
+```
+GraphSONMessageSerializerV3d0
+```
+
 ### Indexing DB
 #### Elasticsearch
 ##### DEBUG
