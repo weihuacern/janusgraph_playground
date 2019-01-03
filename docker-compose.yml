@@ -10,8 +10,20 @@ version: '3'
 #   http://docs.scylladb.com/using-scylla/cassandra-compatibility/
 
 services:
+  graphexp:
+    image: graphexp:0.0.1
+    container_name: graphexp
+    build:
+      context: ./graphexp
+      dockerfile: Dockerfile
+    ports:
+      - "8183:8183"
+    depends_on:
+      - janusgraph
+
   janusgraph:
     image: janusgraph:0.3.1-hadoop2
+    container_name: janusgraph
     build:
       context: ./janusgraph
       dockerfile: Dockerfile
@@ -27,6 +39,7 @@ services:
 
   storage_db:
     image: scylladb/scylla:2.2.0
+    container_name: storage_db
     ports:
      # http://docs.scylladb.com/kb/posix/
      # REST API
@@ -48,6 +61,7 @@ services:
 
   index_db:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
+    container_name: index_db
     ports:
      - "9200:9200"
      - "9300:9300"

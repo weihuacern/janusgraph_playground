@@ -1,11 +1,22 @@
 ## JanusGraph Playground
 https://github.com/JanusGraph/janusgraph
 
+### graphexp
+An simple visulization tool for gremlin
+```
+https://github.com/bricaud/graphexp
+https://github.com/erandal/janusgraph-env
+```
+
 ### JanusGraph
 #### Gremlin server
 ```
 GraphSONMessageSerializerV3d0
 ```
+
+### Storage DB
+#### Scylla
+#### Cassandra
 
 ### Indexing DB
 #### Elasticsearch
@@ -24,10 +35,6 @@ chmod 777 data/
 https://github.com/elastic/elasticsearch-docker/issues/21
 ```
 
-### Storage DB
-#### Scylla
-#### Cassandra
-
 ### Client
 #### Python
 ```
@@ -35,6 +42,3 @@ pip3.6 install gremlinpython
 pip3.6 install aiogremlin
 https://aiogremlin.readthedocs.io/en/latest/
 ```
-
-## TODO
-- visulization on gremlin server, https://github.com/bricaud/graphexp, https://github.com/erandal/janusgraph-env
