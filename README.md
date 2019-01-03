@@ -35,3 +35,6 @@ pip3.6 install gremlinpython
 pip3.6 install aiogremlin
 https://aiogremlin.readthedocs.io/en/latest/
 ```
+
+## TODO
+- visulization on gremlin server, https://github.com/bricaud/graphexp
