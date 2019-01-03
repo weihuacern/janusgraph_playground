@@ -21,3 +21,11 @@ https://github.com/elastic/elasticsearch-docker/issues/21
 ### Storage DB
 #### Scylla
 #### Cassandra
+
+### Client
+#### Python
+```
+pip3.6 install gremlinpython
+pip3.6 install aiogremlin
+https://aiogremlin.readthedocs.io/en/latest/
+```
