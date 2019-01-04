@@ -31,7 +31,7 @@ https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
 - 2, Failed to create node environment
 ```
-chmod 777 data/
+chmod 777 data/elasticsearch/data/
 https://github.com/elastic/elasticsearch-docker/issues/21
 ```
 
