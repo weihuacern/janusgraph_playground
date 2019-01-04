@@ -6,6 +6,7 @@ An simple visulization tool for gremlin
 ```
 https://github.com/bricaud/graphexp
 https://github.com/erandal/janusgraph-env
+http://192.168.7.143:8183
 ```
 
 ### JanusGraph

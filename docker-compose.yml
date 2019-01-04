@@ -16,8 +16,12 @@ services:
     build:
       context: ./graphexp
       dockerfile: Dockerfile
+      #args:
+      #  http_proxy: ${http_proxy}
+      #  https_proxy: ${https_proxy}
+      #  no_proxy: ${no_proxy}
     ports:
-      - "8183:8183"
+      - "8183:80"
     depends_on:
       - janusgraph
 
