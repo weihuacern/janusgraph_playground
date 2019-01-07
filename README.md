@@ -1,5 +1,8 @@
 ## JanusGraph Playground
 https://github.com/JanusGraph/janusgraph
+```bash
+docker-compose -f ./docker-compose.yml up -d
+```
 
 ### graphexp
 An simple visulization tool for gremlin
